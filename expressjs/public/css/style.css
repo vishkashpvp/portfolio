@@ -1,0 +1,16 @@
+body {
+  font-family: "Quicksand", sans-serif;
+}
+
+a {
+  color: green;
+}
+a:hover {
+  color: orange;
+}
+
+hr {
+  border: 0.5px solid rgba(0, 128, 0, 0.5);
+  margin-top: 30px;
+  margin-bottom: 30px;
+}

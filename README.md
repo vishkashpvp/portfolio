@@ -15,3 +15,5 @@ Portfolio of [Vishnuprakash P](https://github.com/vishkashpvp) using different t
    > Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
    - [Express.js](https://expressjs.com)
      > Express.js: the fast, unopinionated, minimalist web framework for Node.js
+   - [EJS](https://ejs.co)
+     > A simple templating language that lets you generate HTML markup with plain JavaScript.

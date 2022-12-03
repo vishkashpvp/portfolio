@@ -1,0 +1,9 @@
+# Package Files
+/node_modules
+
+# Generated Files
+/.idea
+.DS_Store
+
+# Environment Files
+.env
