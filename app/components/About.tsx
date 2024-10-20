@@ -1,15 +1,8 @@
-export default function LandingPage() {
+export default function About() {
   return (
-    <div className="flex flex-col w-full min-h-screen md:flex-row">
-      <div className="flex items-center justify-center w-full p-6 bg-gray-100 dark:bg-[#171717] md:w-1/2 md:p-0">
-        <div className="text-4xl font-bold text-center text-gray-800 dark:text-white md:text-6xl whitespace-nowrap md:text-left">
-          <span className="block md:hidden">next. web. dev.</span>
-          <span className="hidden md:block">
-            next. <br />
-            web. <br />
-            dev.
-          </span>
-        </div>
+    <section className="flex flex-col w-full min-h-screen md:flex-row">
+      <div className="flex items-center justify-center w-full p-6 bg-gray-100 md:w-1/2 dark:bg-[#171717]">
+        <div className="text-6xl font-bold">next.</div>
       </div>
       <div className="flex items-center justify-center w-full p-8 md:w-1/2">
         <div className="max-w-md text-left">
@@ -30,6 +23,6 @@ export default function LandingPage() {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
