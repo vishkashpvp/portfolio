@@ -59,7 +59,7 @@ export default function WorkExperience() {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-center order-2 w-full p-6 bg-gray-100 md:w-1/2 dark:bg-[#171717]">
+      <div className="flex items-center justify-center order-1 w-full p-6 bg-gray-100 md:order-2 md:w-1/2 dark:bg-[#171717]">
         <div className="text-6xl font-bold">web.</div>
       </div>
     </section>
