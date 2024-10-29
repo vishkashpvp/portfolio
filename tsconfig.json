@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["app/components/*"],
+      "@icons/*": ["app/icons/*"],
       "@/*": ["./*"]
     }
   },
