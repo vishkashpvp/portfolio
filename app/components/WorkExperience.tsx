@@ -5,9 +5,9 @@ export default function WorkExperience() {
     <section className="flex flex-col w-full min-h-screen md:flex-row">
       <div className="flex items-center justify-center order-2 w-full p-8 md:w-1/2 md:order-1">
         <div className="max-w-md">
-          <h2 className="mb-8 text-3xl font-bold">work experience</h2>
+          <h2 className="mb-5 text-3xl font-bold">work experience</h2>
           <div className="mb-6 text-sm">
-            <div className="flex items-center">
+            <div className="flex items-center p-3 bg-gray-200 rounded dark:bg-white/10">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-4 h-4 mr-2"
@@ -21,7 +21,7 @@ export default function WorkExperience() {
                   d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <span>overall experience: 2 years 4 months</span>
+              <span className="font-bold">overall experience: 2 years 4 months</span>
             </div>
           </div>
           <div className="space-y-6 relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:bottom-2 before:w-0.5 before:bg-gray-300 dark:before:bg-gray-600">

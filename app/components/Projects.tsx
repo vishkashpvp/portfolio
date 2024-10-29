@@ -41,7 +41,7 @@ const projects: ProjectProps[] = [
   {
     name: "calcon.fit",
     description:
-      "a fitness tracking application that helps users monitor their calorie intake and exercise routines.",
+      "the fitness app that helps users track calorie intake, create squads, and share progress with friends.",
     link: "https://calcon.fit",
   },
   {
