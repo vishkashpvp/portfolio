@@ -1,61 +1,62 @@
+"use client";
+
 import Link from "next/link";
-import CalendarIcon from "@icons/CalendarIcon";
-import ClockIcon from "@icons/ClockIcon";
-import BriefcaseIcon from "@icons/BriefcaseIcon";
+import { useExperience } from "@/hooks/useExperience";
 
 export default function WorkExperience() {
+  const { currentCompany, previousCompanies, totalExperience } = useExperience();
+
+  if (!currentCompany) return null;
+
+  const latestRole = currentCompany.roles[0];
+
   return (
     <section className="flex flex-col w-full min-h-screen md:flex-row">
       <div className="flex items-center justify-center order-2 w-full p-8 md:w-1/2 md:order-1">
-        <div className="max-w-md">
-          <h2 className="mb-5 text-3xl font-bold">work experience</h2>
-          <div className="mb-6 text-sm">
-            <div className="flex items-center p-3 bg-gray-200 rounded dark:bg-white/10">
-              <ClockIcon />
-              <span className="font-bold">overall experience: 2 years 4 months</span>
+        <div className="max-w-md space-y-8">
+          <h2 className="text-3xl font-bold">work experience</h2>
+
+          <div className="space-y-3">
+            <p className="text-xl font-semibold">{latestRole.title}</p>
+            <div className="flex items-center justify-between gap-2 text-sm text-gray-700 dark:text-gray-300">
+              <Link
+                href={currentCompany.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-blue-500 hover:underline">
+                {currentCompany.name}
+              </Link>
+              <span>{currentCompany.experience}</span>
             </div>
           </div>
-          <div className="space-y-6 relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:bottom-2 before:w-0.5 before:bg-gray-300 dark:before:bg-gray-600">
-            <div>
-              <h3 className="mb-2 text-xl font-semibold">software development engineer II</h3>
-              <div className="flex items-center text-sm">
-                <CalendarIcon />
-                <span>september 2024 - present</span>
-              </div>
+
+          {previousCompanies.length > 0 && (
+            <div className="pt-6 mt-6 border-t border-gray-300 dark:border-gray-700">
+              <h4 className="mb-4 text-sm font-semibold tracking-wider text-gray-600 dark:text-gray-400">
+                previously at
+              </h4>
+              <ul className="space-y-2 text-sm">
+                {previousCompanies.map((company) => (
+                  <li
+                    key={company.name}
+                    className="flex items-center justify-between">
+                    <Link
+                      href={company.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-blue-500 hover:underline">
+                      {company.name}
+                    </Link>
+                    <span className="text-gray-600 dark:text-gray-400">{company.experience}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div>
-              <h3 className="mb-2 text-xl font-semibold">software developer</h3>
-              <div className="flex items-center text-sm">
-                <CalendarIcon />
-                <span>july 2023 - july 2024</span>
-              </div>
-            </div>
-            <div>
-              <h3 className="mb-2 text-xl font-semibold">get (graduate engineer trainee)</h3>
-              <div className="flex items-center text-sm">
-                <CalendarIcon />
-                <span>june 2022 - june 2023</span>
-              </div>
-            </div>
-          </div>
-          <div className="mt-6 space-y-2 text-sm">
-            <div className="flex items-center">
-              <BriefcaseIcon />
-              <span>
-                company:{" "}
-                <Link
-                  href="https://jio.com/platforms"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-bold text-blue-500 hover:underline">
-                  jio platforms limited
-                </Link>
-              </span>
-            </div>
-            <div className="flex items-center">
-              <ClockIcon />
-              <span>experience: 2 years 4 months</span>
-            </div>
+          )}
+
+          <div className="flex justify-between pt-6 mt-6 text-sm border-t border-gray-300 dark:border-gray-700">
+            <span>total work experience</span>
+            <span>{totalExperience}</span>
           </div>
         </div>
       </div>

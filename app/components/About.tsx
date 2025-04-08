@@ -1,4 +1,10 @@
+"use client";
+
+import { useExperience } from "@/hooks/useExperience";
+
 export default function About() {
+  const { totalExperience } = useExperience();
+
   return (
     <section className="flex flex-col w-full min-h-screen md:flex-row">
       <div className="flex items-center justify-center w-full p-6 bg-gray-100 md:w-1/2 dark:bg-[#171717]">
@@ -10,7 +16,7 @@ export default function About() {
           <p>
             i&apos;m <strong>vishkash</strong> <em>a.k.a.</em> <strong>vishnuprakash</strong>,
             <br /> a passionate full-stack web developer driven by the love for creating seamless
-            digital experiences. with almost <strong>2.5 years</strong> of hands-on experience, i
+            digital experiences. with <strong>{totalExperience}</strong> of hands-on experience, i
             focus on building modern, efficient, and user-friendly web applications using
             cutting-edge technologies.
           </p>
