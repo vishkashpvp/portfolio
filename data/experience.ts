@@ -11,6 +11,9 @@ export type CompanyExperience = {
   roles: Role[];
 };
 
+// TODO(v2): move experience data to db,
+// use null for ongoing roles instead of "present"
+
 export const experiences: CompanyExperience[] = [
   {
     name: "jio platforms limited",
@@ -19,7 +22,7 @@ export const experiences: CompanyExperience[] = [
     roles: [
       { title: "get (graduate engineer trainee)", start: "2022-06", end: "2023-06" },
       { title: "software developer", start: "2023-06", end: "2024-07" },
-      { title: "software development engineer II", start: "2024-07", end: "2025-04" },
+      { title: "software development engineer II", start: "2024-07", end: "present" },
     ],
   },
 ];
