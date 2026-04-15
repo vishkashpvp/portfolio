@@ -1,33 +1,17 @@
 import { experiences as rawExperiences } from "@/data/experience";
-
-function calculateDuration(start: string, end: string): number {
-  const [startYear, startMonth] = start.split("-").map(Number);
-  const [endYear, endMonth] =
-    end === "present"
-      ? [new Date().getFullYear(), new Date().getMonth() + 1]
-      : end.split("-").map(Number);
-  return (endYear - startYear) * 12 + (endMonth - startMonth);
-}
-
-function formatDuration(months: number): string {
-  if (months <= 0) return "less than a month";
-  const y = Math.floor(months / 12);
-  const m = months % 12;
-  if (y && m) return `${y} year${y > 1 ? "s" : ""} ${m} month${m > 1 ? "s" : ""}`;
-  if (y) return `${y} year${y > 1 ? "s" : ""}`;
-  return `${m} month${m > 1 ? "s" : ""}`;
-}
+import { calculateDuration, formatDuration } from "@/lib/experience-duration";
+import { getCompanyRange } from "@/lib/company-range";
 
 export function useExperience() {
   const sortedExperiences = rawExperiences.map((exp) => {
     const sortedRoles = [...exp.roles].sort((a, b) => b.start.localeCompare(a.start));
-    const experienceInMonths = sortedRoles.reduce(
-      (acc, role) => acc + calculateDuration(role.start, role.end),
-      0
-    );
+    const { start: companyStart, end: companyEnd } = getCompanyRange(exp.roles);
+    const experienceInMonths = calculateDuration(companyStart, companyEnd);
     return {
       ...exp,
       roles: sortedRoles,
+      companyStart,
+      companyEnd,
       experienceInMonths,
       experience: formatDuration(experienceInMonths),
       latestRoleStart: sortedRoles[0]?.start ?? "0000-00",
