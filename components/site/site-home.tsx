@@ -15,11 +15,11 @@ import { formatMonthRange } from "@/lib/format-month-range";
 
 function SectionHeading({ step, title }: { step: string; title: string }) {
   return (
-    <div className="mb-4 flex items-center gap-3 text-zinc-950 dark:text-zinc-50">
-      <span className="font-mono text-xs font-medium text-zinc-400 tabular-nums dark:text-zinc-500">
+    <div className="flex gap-3 items-center mb-4 text-zinc-950 dark:text-zinc-50">
+      <span className="font-mono text-xs font-medium tabular-nums text-zinc-400 dark:text-zinc-500">
         {step}
       </span>
-      <div className="h-px flex-1 bg-linear-to-r from-zinc-300 to-transparent dark:from-zinc-600" />
+      <div className="flex-1 h-px to-transparent bg-linear-to-r from-zinc-300 dark:from-zinc-600" />
       <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
     </div>
   );
@@ -41,11 +41,11 @@ export function SiteHome() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-(--background) font-montserrat text-zinc-950 dark:text-zinc-50">
       <div
-        className="pointer-events-none absolute inset-0 -z-10 bg-radial-[ellipse_80%_50%_at_50%_-20%] from-sky-400/12 to-transparent dark:from-sky-400/8 dark:to-transparent"
+        className="pointer-events-none absolute inset-0 -z-10 bg-radial-[ellipse_80%_50%_at_50%_-20%] from-zinc-400/10 to-transparent dark:from-zinc-500/8 dark:to-transparent"
         aria-hidden
       />
       <header className="sticky top-0 z-10 border-b border-zinc-200/90 bg-(--background)/90 backdrop-blur-md dark:border-zinc-800">
-        <div className="mx-auto flex max-w-3xl items-center justify-between gap-4 px-5 py-4">
+        <div className="flex gap-4 justify-between items-center px-5 py-4 mx-auto max-w-3xl">
           <span className="text-sm font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
             vishkash
           </span>
@@ -53,9 +53,9 @@ export function SiteHome() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-3xl space-y-12 px-5 py-10 sm:space-y-16 sm:py-14">
+      <main className="px-5 py-10 mx-auto space-y-12 max-w-3xl sm:space-y-16 sm:py-14">
         <div className="space-y-6">
-          <div className="flex flex-wrap items-center gap-3 animate-reveal">
+          <div className="flex flex-wrap gap-3 items-center animate-reveal">
             {SOCIAL_LINKS.map((link) => (
               <a
                 key={link.name}
@@ -67,7 +67,7 @@ export function SiteHome() {
                 <BrandIcon
                   icon={link.icon}
                   useCurrentColor={link.useCurrentColor}
-                  className="size-4 transition-transform group-hover:scale-110"
+                  className="transition-transform size-4 group-hover:scale-110"
                 />
                 <span>{link.label}</span>
               </a>
@@ -103,7 +103,7 @@ export function SiteHome() {
                 )}
               />
               {previousCompanies.length > 0 && (
-                <ul className="mt-6 space-y-4 border-t border-zinc-200 pt-6 dark:border-zinc-700">
+                <ul className="pt-6 mt-6 space-y-4 border-t border-zinc-200 dark:border-zinc-700">
                   {previousCompanies.map((c) => (
                     <li key={c.name}>
                       <p className="text-sm text-zinc-700 dark:text-zinc-300">{c.highlight}</p>
@@ -163,14 +163,14 @@ export function SiteHome() {
               .map((project) => (
                 <li
                   key={project.name}
-                  className="group relative rounded-xl border border-zinc-200 bg-white p-5 shadow-xs transition-colors hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950/30 dark:hover:bg-zinc-900/50">
+                  className="relative p-5 bg-white rounded-xl border transition-colors group border-zinc-200 shadow-xs hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950/30 dark:hover:bg-zinc-900/50">
                   <h3 className="font-semibold text-zinc-950 dark:text-zinc-50">
                     {project.link ? (
                       <Link
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-600 underline decoration-blue-600/50 underline-offset-4 transition hover:text-blue-800 hover:decoration-blue-800 dark:text-blue-400 dark:decoration-blue-400/60 dark:hover:text-blue-300 dark:hover:decoration-blue-300 before:absolute before:inset-0 before:z-10">
+                        className="text-blue-600 underline transition decoration-blue-600/50 underline-offset-4 hover:text-blue-800 hover:decoration-blue-800 dark:text-blue-400 dark:decoration-blue-400/60 dark:hover:text-blue-300 dark:hover:decoration-blue-300 before:absolute before:inset-0 before:z-10">
                         {project.name}
                         <span
                           className="ml-1 inline-block transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -196,10 +196,10 @@ export function SiteHome() {
         </section>
 
         <footer className="mt-12 border-t border-zinc-200/90 pt-8 sm:mt-20 sm:pt-10 dark:border-zinc-800 animate-reveal [animation-delay:500ms]">
-          <div className="mx-auto flex max-w-md justify-center pb-8">
+          <div className="flex justify-center pb-8 mx-auto max-w-md">
             <Link
               href="/v1"
-              className="text-sm font-medium text-zinc-500 underline decoration-zinc-300 underline-offset-4 transition hover:text-zinc-800 dark:text-zinc-400 dark:decoration-zinc-700 dark:hover:text-zinc-200">
+              className="text-sm font-medium underline transition text-zinc-500 decoration-zinc-300 underline-offset-4 hover:text-zinc-800 dark:text-zinc-400 dark:decoration-zinc-700 dark:hover:text-zinc-200">
               view v1
             </Link>
           </div>
